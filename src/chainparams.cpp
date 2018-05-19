@@ -82,11 +82,11 @@ public:
         genesis.nVersion = 1;
         genesis.nTime    = 1526755036;
         genesis.nBits    = 0x1e0fffff;
-        genesis.nNonce   = 0;
+        genesis.nNonce   = 1222121;
 
         hashGenesisBlock = genesis.GetHash();
 
-        // assert(hashGenesisBlock == uint256("0x000001b5480fd285a0d85a6cdbd79e59e95ca9d4d5666eb08511063a4d43aa4d"));
+        // assert(hashGenesisBlock == uint256("0x000004265d2a9ed52851fdc5b334017a1dce0abb0c8511ac2d49bdb3fdf6d522"));
         // assert(genesis.hashMerkleRoot == uint256("0x73493cadda0b9042bae383208bccc06c47c46892ba8feea5d831d358eb1626d4"));
 
         // START genesis block code
@@ -110,8 +110,8 @@ public:
            printf("genesis.nTime = %u \n", genesis.nTime);
            printf("genesis.nNonce = %u \n", genesis.nNonce);
            printf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
-         // printf("genesis.MerkleRoot = %s\n", genesis.hashMerkleRoot.ToString().c_str());
-         // exit(0);
+           printf("genesis.MerkleRoot = %s\n", genesis.hashMerkleRoot.ToString().c_str());
+           exit(0);
         // END genesis block code
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,132);
