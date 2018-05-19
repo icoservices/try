@@ -27,17 +27,17 @@ public:
     void SetNull() { hash = 0; n = (unsigned int) -1; }
     bool IsNull() const { return (hash == 0 && n == (unsigned int) -1); }
 
-    versatile bool operator<(const COutPoint& a, const COutPoint& b)
+    friend bool operator<(const COutPoint& a, const COutPoint& b)
     {
         return (a.hash < b.hash || (a.hash == b.hash && a.n < b.n));
     }
 
-    versatile bool operator==(const COutPoint& a, const COutPoint& b)
+    friend bool operator==(const COutPoint& a, const COutPoint& b)
     {
         return (a.hash == b.hash && a.n == b.n);
     }
 
-    versatile bool operator!=(const COutPoint& a, const COutPoint& b)
+    friend bool operator!=(const COutPoint& a, const COutPoint& b)
     {
         return !(a == b);
     }
@@ -93,14 +93,14 @@ public:
         return (nSequence == std::numeric_limits<unsigned int>::max());
     }
 
-    versatile bool operator==(const CTxIn& a, const CTxIn& b)
+    friend bool operator==(const CTxIn& a, const CTxIn& b)
     {
         return (a.prevout   == b.prevout &&
                 a.scriptSig == b.scriptSig &&
                 a.nSequence == b.nSequence);
     }
 
-    versatile bool operator!=(const CTxIn& a, const CTxIn& b)
+    friend bool operator!=(const CTxIn& a, const CTxIn& b)
     {
         return !(a == b);
     }
@@ -172,14 +172,14 @@ public:
         return ((nValue*1000)/(3*((int)GetSerializeSize(SER_DISK,0)+148)) < MIN_RELAY_TX_FEE);
     }
 
-    versatile bool operator==(const CTxOut& a, const CTxOut& b)
+    friend bool operator==(const CTxOut& a, const CTxOut& b)
     {
         return (a.nValue       == b.nValue &&
                 a.nRounds      == b.nRounds &&
                 a.scriptPubKey == b.scriptPubKey);
     }
 
-    versatile bool operator!=(const CTxOut& a, const CTxOut& b)
+    friend bool operator!=(const CTxOut& a, const CTxOut& b)
     {
         return !(a == b);
     }

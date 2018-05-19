@@ -114,8 +114,8 @@ class Version {
   std::string DebugString() const;
 
  private:
-  versatile class Compaction;
-  versatile class VersionSet;
+  friend class Compaction;
+  friend class VersionSet;
 
   class LevelFileNumIterator;
   Iterator* NewConcatenatingIterator(const ReadOptions&, int level) const;
@@ -271,8 +271,8 @@ class VersionSet {
  private:
   class Builder;
 
-  versatile class Compaction;
-  versatile class Version;
+  friend class Compaction;
+  friend class Version;
 
   void Finalize(Version* v);
 
@@ -361,8 +361,8 @@ class Compaction {
   void ReleaseInputs();
 
  private:
-  versatile class Version;
-  versatile class VersionSet;
+  friend class Version;
+  friend class VersionSet;
 
   explicit Compaction(int level);
 

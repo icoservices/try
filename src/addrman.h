@@ -42,7 +42,7 @@ private:
     // position in vRandom
     int nRandomPos;
 
-    versatile class CAddrMan;
+    friend class CAddrMan;
 
 public:
 

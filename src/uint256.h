@@ -216,7 +216,7 @@ public:
     }
 
 
-    versatile inline bool operator<(const base_uint& a, const base_uint& b)
+    friend inline bool operator<(const base_uint& a, const base_uint& b)
     {
         for (int i = base_uint::WIDTH-1; i >= 0; i--)
         {
@@ -228,7 +228,7 @@ public:
         return false;
     }
 
-    versatile inline bool operator<=(const base_uint& a, const base_uint& b)
+    friend inline bool operator<=(const base_uint& a, const base_uint& b)
     {
         for (int i = base_uint::WIDTH-1; i >= 0; i--)
         {
@@ -240,7 +240,7 @@ public:
         return true;
     }
 
-    versatile inline bool operator>(const base_uint& a, const base_uint& b)
+    friend inline bool operator>(const base_uint& a, const base_uint& b)
     {
         for (int i = base_uint::WIDTH-1; i >= 0; i--)
         {
@@ -252,7 +252,7 @@ public:
         return false;
     }
 
-    versatile inline bool operator>=(const base_uint& a, const base_uint& b)
+    friend inline bool operator>=(const base_uint& a, const base_uint& b)
     {
         for (int i = base_uint::WIDTH-1; i >= 0; i--)
         {
@@ -264,7 +264,7 @@ public:
         return true;
     }
 
-    versatile inline bool operator==(const base_uint& a, const base_uint& b)
+    friend inline bool operator==(const base_uint& a, const base_uint& b)
     {
         for (int i = 0; i < base_uint::WIDTH; i++)
             if (a.pn[i] != b.pn[i])
@@ -272,7 +272,7 @@ public:
         return true;
     }
 
-    versatile inline bool operator==(const base_uint& a, uint64_t b)
+    friend inline bool operator==(const base_uint& a, uint64_t b)
     {
         if (a.pn[0] != (unsigned int)b)
             return false;
@@ -284,12 +284,12 @@ public:
         return true;
     }
 
-    versatile inline bool operator!=(const base_uint& a, const base_uint& b)
+    friend inline bool operator!=(const base_uint& a, const base_uint& b)
     {
         return (!(a == b));
     }
 
-    versatile inline bool operator!=(const base_uint& a, uint64_t b)
+    friend inline bool operator!=(const base_uint& a, uint64_t b)
     {
         return (!(a == b));
     }
@@ -391,10 +391,10 @@ public:
         s.read((char*)pn, sizeof(pn));
     }
 
-    versatile class uint160;
-    versatile class uint256;
-    versatile class uint512;
-    versatile inline int Testuint256AdHoc(std::vector<std::string> vArg);
+    friend class uint160;
+    friend class uint256;
+    friend class uint512;
+    friend inline int Testuint256AdHoc(std::vector<std::string> vArg);
 };
 
 typedef base_uint<160> base_uint160;

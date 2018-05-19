@@ -61,7 +61,7 @@ class Mutex {
   void AssertHeld();
 
  private:
-  versatile class CondVar;
+  friend class CondVar;
   // critical sections are more efficient than mutexes
   // but they are not recursive and can only be used to synchronize threads within the same process
   // we use opaque void * to avoid including windows.h in port_win.h

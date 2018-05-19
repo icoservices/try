@@ -73,7 +73,7 @@ DWORD WINAPI WorkItemWrapperProc(LPVOID pContent);
 class Win32SequentialFile : public SequentialFile
 {
 public:
-    versatile class Win32Env;
+    friend class Win32Env;
     virtual ~Win32SequentialFile();
     virtual Status Read(size_t n, Slice* result, char* scratch);
     virtual Status Skip(uint64_t n);
@@ -90,7 +90,7 @@ private:
 class Win32RandomAccessFile : public RandomAccessFile
 {
 public:
-    versatile class Win32Env;
+    friend class Win32Env;
     virtual ~Win32RandomAccessFile();
     virtual Status Read(uint64_t offset, size_t n, Slice* result,char* scratch) const;
     BOOL isEnable();
@@ -141,7 +141,7 @@ private:
 class Win32FileLock : public FileLock
 {
 public:
-    versatile class Win32Env;
+    friend class Win32Env;
     virtual ~Win32FileLock();
     BOOL isEnable();
 private:
@@ -156,7 +156,7 @@ private:
 class Win32Logger : public Logger
 {
 public: 
-    versatile class Win32Env;
+    friend class Win32Env;
     virtual ~Win32Logger();
     virtual void Logv(const char* format, va_list ap);
 private:

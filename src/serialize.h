@@ -968,7 +968,7 @@ public:
         return *this;
     }
 
-    versatile CDataStream operator+(const CDataStream& a, const CDataStream& b)
+    friend CDataStream operator+(const CDataStream& a, const CDataStream& b)
     {
         CDataStream ret = a;
         ret += b;

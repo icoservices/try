@@ -84,9 +84,9 @@ class CNetAddr
         CNetAddr(const struct in6_addr& pipv6Addr);
         bool GetIn6Addr(struct in6_addr* pipv6Addr) const;
 
-        versatile bool operator==(const CNetAddr& a, const CNetAddr& b);
-        versatile bool operator!=(const CNetAddr& a, const CNetAddr& b);
-        versatile bool operator<(const CNetAddr& a, const CNetAddr& b);
+        friend bool operator==(const CNetAddr& a, const CNetAddr& b);
+        friend bool operator!=(const CNetAddr& a, const CNetAddr& b);
+        friend bool operator<(const CNetAddr& a, const CNetAddr& b);
 
         IMPLEMENT_SERIALIZE
             (
@@ -113,9 +113,9 @@ class CSubNet
         std::string ToString() const;
         bool IsValid() const;
 
-        versatile bool operator==(const CSubNet& a, const CSubNet& b);
-        versatile bool operator!=(const CSubNet& a, const CSubNet& b);
-        versatile bool operator<(const CSubNet& a, const CSubNet& b);
+        friend bool operator==(const CSubNet& a, const CSubNet& b);
+        friend bool operator!=(const CSubNet& a, const CSubNet& b);
+        friend bool operator<(const CSubNet& a, const CSubNet& b);
 
         IMPLEMENT_SERIALIZE
         (
@@ -145,9 +145,9 @@ class CService : public CNetAddr
         unsigned short GetPort() const;
         bool GetSockAddr(struct sockaddr* paddr, socklen_t *addrlen) const;
         bool SetSockAddr(const struct sockaddr* paddr);
-        versatile bool operator==(const CService& a, const CService& b);
-        versatile bool operator!=(const CService& a, const CService& b);
-        versatile bool operator<(const CService& a, const CService& b);
+        friend bool operator==(const CService& a, const CService& b);
+        friend bool operator!=(const CService& a, const CService& b);
+        friend bool operator<(const CService& a, const CService& b);
         std::vector<unsigned char> GetKey() const;
         std::string ToString() const;
         std::string ToStringPort() const;

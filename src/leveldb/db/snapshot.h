@@ -18,7 +18,7 @@ class SnapshotImpl : public Snapshot {
   SequenceNumber number_;  // const after creation
 
  private:
-  versatile class SnapshotList;
+  friend class SnapshotList;
 
   // SnapshotImpl is kept in a doubly-linked circular list
   SnapshotImpl* prev_;

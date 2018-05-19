@@ -62,7 +62,7 @@ public:
         UnlockObject(vch);
     }
 
-    versatile bool operator==(const CKey &a, const CKey &b) {
+    friend bool operator==(const CKey &a, const CKey &b) {
         return a.fCompressed == b.fCompressed && a.size() == b.size() &&
                memcmp(&a.vch[0], &b.vch[0], a.size()) == 0;
     }
@@ -144,7 +144,7 @@ struct CExtKey {
     unsigned char vchChainCode[32];
     CKey key;
 
-    versatile bool operator==(const CExtKey &a, const CExtKey &b) {
+    friend bool operator==(const CExtKey &a, const CExtKey &b) {
         return a.nDepth == b.nDepth && memcmp(&a.vchFingerprint[0], &b.vchFingerprint[0], 4) == 0 && a.nChild == b.nChild &&
                memcmp(&a.vchChainCode[0], &b.vchChainCode[0], 32) == 0 && a.key == b.key;
     }

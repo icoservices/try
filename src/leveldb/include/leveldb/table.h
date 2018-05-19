@@ -65,7 +65,7 @@ class Table {
   // Calls (*handle_result)(arg, ...) with the entry found after a call
   // to Seek(key).  May not make such a call if filter policy says
   // that key is not present.
-  versatile class TableCache;
+  friend class TableCache;
   Status InternalGet(
       const ReadOptions&, const Slice& key,
       void* arg,

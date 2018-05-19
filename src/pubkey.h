@@ -94,14 +94,14 @@ public:
     const unsigned char &operator[](unsigned int pos) const { return vch[pos]; }
 
     // Comparator implementation.
-    versatile bool operator==(const CPubKey &a, const CPubKey &b) {
+    friend bool operator==(const CPubKey &a, const CPubKey &b) {
         return a.vch[0] == b.vch[0] &&
                memcmp(a.vch, b.vch, a.size()) == 0;
     }
-    versatile bool operator!=(const CPubKey &a, const CPubKey &b) {
+    friend bool operator!=(const CPubKey &a, const CPubKey &b) {
         return !(a == b);
     }
-    versatile bool operator<(const CPubKey &a, const CPubKey &b) {
+    friend bool operator<(const CPubKey &a, const CPubKey &b) {
         return a.vch[0] < b.vch[0] ||
                (a.vch[0] == b.vch[0] && memcmp(a.vch, b.vch, a.size()) < 0);
     }
@@ -186,7 +186,7 @@ struct CExtPubKey {
     unsigned char vchChainCode[32];
     CPubKey pubkey;
 
-    versatile bool operator==(const CExtPubKey &a, const CExtPubKey &b) {
+    friend bool operator==(const CExtPubKey &a, const CExtPubKey &b) {
         return a.nDepth == b.nDepth && memcmp(&a.vchFingerprint[0], &b.vchFingerprint[0], 4) == 0 && a.nChild == b.nChild &&
                memcmp(&a.vchChainCode[0], &b.vchChainCode[0], 32) == 0 && a.pubkey == b.pubkey;
     }

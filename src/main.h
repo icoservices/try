@@ -208,14 +208,14 @@ public:
     void SetNull() { nFile = (unsigned int) -1; nBlockPos = 0; nTxPos = 0; }
     bool IsNull() const { return (nFile == (unsigned int) -1); }
 
-    versatile bool operator==(const CDiskTxPos& a, const CDiskTxPos& b)
+    friend bool operator==(const CDiskTxPos& a, const CDiskTxPos& b)
     {
         return (a.nFile     == b.nFile &&
                 a.nBlockPos == b.nBlockPos &&
                 a.nTxPos    == b.nTxPos);
     }
 
-    versatile bool operator!=(const CDiskTxPos& a, const CDiskTxPos& b)
+    friend bool operator!=(const CDiskTxPos& a, const CDiskTxPos& b)
     {
         return !(a == b);
     }
@@ -369,7 +369,7 @@ public:
         return true;
     }
 
-    versatile bool operator==(const CTransaction& a, const CTransaction& b)
+    friend bool operator==(const CTransaction& a, const CTransaction& b)
     {
         return (a.nVersion  == b.nVersion &&
                 a.nTime     == b.nTime &&
@@ -378,7 +378,7 @@ public:
                 a.nLockTime == b.nLockTime);
     }
 
-    versatile bool operator!=(const CTransaction& a, const CTransaction& b)
+    friend bool operator!=(const CTransaction& a, const CTransaction& b)
     {
         return !(a == b);
     }
@@ -595,13 +595,13 @@ public:
         return pos.IsNull();
     }
 
-    versatile bool operator==(const CTxIndex& a, const CTxIndex& b)
+    friend bool operator==(const CTxIndex& a, const CTxIndex& b)
     {
         return (a.pos    == b.pos &&
                 a.vSpent == b.vSpent);
     }
 
-    versatile bool operator!=(const CTxIndex& a, const CTxIndex& b)
+    friend bool operator!=(const CTxIndex& a, const CTxIndex& b)
     {
         return !(a == b);
     }
@@ -1426,9 +1426,9 @@ protected:
     virtual bool UpdatedTransaction(const uint256 &hash) =0;
     virtual void Inventory(const uint256 &hash) =0;
     virtual void ResendWalletTransactions(bool fForce) =0;
-    versatile void ::RegisterWallet(CWalletInterface*);
-    versatile void ::UnregisterWallet(CWalletInterface*);
-    versatile void ::UnregisterAllWallets();
+    friend void ::RegisterWallet(CWalletInterface*);
+    friend void ::UnregisterWallet(CWalletInterface*);
+    friend void ::UnregisterAllWallets();
 };
 
 #endif

@@ -181,8 +181,8 @@ enum txnouttype
 
 class CNoDestination {
 public:
-    versatile bool operator==(const CNoDestination &a, const CNoDestination &b) { return true; }
-    versatile bool operator<(const CNoDestination &a, const CNoDestination &b) { return true; }
+    friend bool operator==(const CNoDestination &a, const CNoDestination &b) { return true; }
+    friend bool operator<(const CNoDestination &a, const CNoDestination &b) { return true; }
 };
 
 /** A txout script template with a specific destination. It is either:
@@ -584,7 +584,7 @@ public:
         return *this;
     }
 
-    versatile CScript operator+(const CScript& a, const CScript& b)
+    friend CScript operator+(const CScript& a, const CScript& b)
     {
         CScript ret = a;
         ret += b;

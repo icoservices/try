@@ -638,11 +638,11 @@ public:
     }
 
 
-    versatile inline const CBigNum operator-(const CBigNum& a, const CBigNum& b);
-    versatile inline const CBigNum operator/(const CBigNum& a, const CBigNum& b);
-    versatile inline const CBigNum operator%(const CBigNum& a, const CBigNum& b);
-    versatile inline const CBigNum operator*(const CBigNum& a, const CBigNum& b);
-    versatile inline bool operator<(const CBigNum& a, const CBigNum& b);
+    friend inline const CBigNum operator-(const CBigNum& a, const CBigNum& b);
+    friend inline const CBigNum operator/(const CBigNum& a, const CBigNum& b);
+    friend inline const CBigNum operator%(const CBigNum& a, const CBigNum& b);
+    friend inline const CBigNum operator*(const CBigNum& a, const CBigNum& b);
+    friend inline bool operator<(const CBigNum& a, const CBigNum& b);
 };
 
 

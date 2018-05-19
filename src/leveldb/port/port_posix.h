@@ -96,7 +96,7 @@ class Mutex {
   void AssertHeld() { }
 
  private:
-  versatile class CondVar;
+  friend class CondVar;
   pthread_mutex_t mu_;
 
   // No copying

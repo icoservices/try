@@ -128,11 +128,11 @@ public:
         swap(*this, from);
         return *this;
     }
-    versatile bool operator==(const CMasternode& a, const CMasternode& b)
+    friend bool operator==(const CMasternode& a, const CMasternode& b)
     {
         return a.vin == b.vin;
     }
-    versatile bool operator!=(const CMasternode& a, const CMasternode& b)
+    friend bool operator!=(const CMasternode& a, const CMasternode& b)
     {
         return !(a.vin == b.vin);
     }
