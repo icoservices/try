@@ -114,7 +114,7 @@ public:
         assert(hashGenesisBlock == uint256("0x000004265d2a9ed52851fdc5b334017a1dce0abb0c8511ac2d49bdb3fdf6d522"));
         assert(genesis.hashMerkleRoot == uint256("0xb39a2ca1902bc27e30f1f8dbbb2d4c3923116506188fb6dd46a0733dced4c170"));
 
-        
+
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,132);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,35);
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,153);
@@ -123,7 +123,7 @@ public:
         base58Prefixes[EXT_SECRET_KEY] = list_of(0x04)(0x88)(0xAD)(0xE4).convert_to_container<std::vector<unsigned char> >();
 
         
-        vSeeds.push_back(CDNSSeedData("0","node.VersatileVisioncoin.com"));
+        vSeeds.push_back(CDNSSeedData("0","127.0.0.1"));
 
         convertSeeds(vFixedSeeds, pnSeed, ARRAYLEN(pnSeed), nDefaultPort);
 
