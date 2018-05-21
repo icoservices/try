@@ -1,2 +1,2 @@
-# VersatileVisionCoin
-VersatileVisionCoin is an Asic resistant,Community Focused,Secure and Decentralized Cryptocurrency.
+# *** 
+The **** is mineable until block ###. Is an asic resistant coin with masternode capabilities. **** was built as a utility for the **** platform.
